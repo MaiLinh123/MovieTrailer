@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.mlpopularmvs.movietrailer">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="com.samsung.android.providers.context.permission.WRITE_USE_APP_FEATURE_SURVEY" />
+    <uses-permission android:name="com.android.vending.BILLING" />
+
+    <queries>
+        <intent>
+            <action android:name="android.intent.action.VIEW" />
+        </intent>
+    </queries>
+
+    <application
+        android:name="com.mlpopularmvs.movietrailer.BaseApplication"
+        android:allowBackup="false"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+
+        <activity
+            android:name=".PurchaseActivity"
+            android:theme="@style/AppTheme.NoActionbar"
+            android:exported="false" />
+
+        <activity
+            android:name="com.mlpopularmvs.movietrailer.ui.main.MainActivity"
+            android:exported="true"
+            android:launchMode="singleTop" />
+
+        <activity
+            android:name="com.mlpopularmvs.movietrailer.ui.movie.MovieActivity"
+            android:label="@string/movie_details"
+            android:launchMode="singleTop"
+            android:parentActivityName="com.mlpopularmvs.movietrailer.ui.main.MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.mlpopularmvs.movietrailer.ui.main.MainActivity" />
+        </activity>
+
+        <activity
+            android:name="com.mlpopularmvs.movietrailer.ui.setting.SettingActivity"
+            android:label="@string/settings"
+            android:parentActivityName="com.mlpopularmvs.movietrailer.ui.main.MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.mlpopularmvs.movietrailer.ui.main.MainActivity" />
+        </activity>
+
+        <activity
+            android:name="com.mlpopularmvs.movietrailer.ui.splash.SplashActivity"
+            android:theme="@style/ActivityTheme"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="com.mlpopularmvs.movietrailer.ui.webview.WebViewActivity"
+            android:label="@string/movie_review"
+            android:parentActivityName="com.mlpopularmvs.movietrailer.ui.movie.MovieActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.mlpopularmvs.movietrailer.ui.movie.MovieActivity" />
+        </activity>
+
+        <receiver android:name="com.mlpopularmvs.movietrailer.utils.NetworkChangeReceiver" />
+
+        <activity
+            android:name="com.mlpopularmvs.movietrailer.ui.favorite.FavoriteActivity"
+            android:label="@string/my_favorites"
+            android:parentActivityName="com.mlpopularmvs.movietrailer.ui.main.MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.mlpopularmvs.movietrailer.ui.main.MainActivity" />
+        </activity>
+
+        <activity
+            android:name="com.mlpopularmvs.movietrailer.ui.seeall.SeeAllActivity"
+            android:label="@string/see_all_trailers"
+            android:parentActivityName="com.mlpopularmvs.movietrailer.ui.movie.MovieActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.mlpopularmvs.movietrailer.ui.movie.MovieActivity" />
+        </activity>
+
+        <activity
+            android:name="com.mlpopularmvs.movietrailer.ui.about.AboutActivity"
+            android:label="@string/about"
+            android:parentActivityName="com.mlpopularmvs.movietrailer.ui.main.MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.mlpopularmvs.movietrailer.ui.main.MainActivity" />
+        </activity>
+    </application>
+</manifest>
